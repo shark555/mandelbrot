@@ -33,10 +33,10 @@ def is_point_in_set(c):
 
 def generate_points():
     points = []
-    for x in range(-1000, 500, 1):
-        for y in range(-500, 500, 1):
+    for x in range(-600, 300, 1):
+        for y in range(-300, 300, 1):
             point = dict()
-            c = complex(x/500, y/500)
+            c = complex(x/300, y/300)
             point['r'] = c.real
             point['i'] = c.imag
             if is_point_in_set(c):
