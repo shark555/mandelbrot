@@ -1,5 +1,6 @@
 import sys
 from drawer import Drawer
+from color import *
 
 WIDTH = 1024
 HEIGHT = 768
@@ -13,7 +14,8 @@ def main():
 
     count = 0
     for point in points:
-        drawer.draw_point(point['r'], point['i'], point['color'], point['color'], point['color'])
+        (r, g, b) = hsv_to_rgb(point['color'], 1, 1)
+        drawer.draw_point(point['r'], point['i'], r, g, b)
         count += 1
         if count % 1000 == 0:
             print("{0} tys punktów".format(count/1000))
@@ -38,7 +40,7 @@ def generate_points():
     y1 = -1.2
     y2 = 1.2
     precision = 300
-    color_step = 10
+    color_step = 14
 
     points = []
     for x in range(int(x1*precision), int(x2*precision), 1):
