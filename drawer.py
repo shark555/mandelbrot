@@ -35,5 +35,9 @@ class Drawer:
     def refresh(self):
         SDL_RenderPresent(self.renderer)
 
+    def clear(self):
+        SDL_SetRenderDrawColor(self.renderer, 0, 0, 0, 255)
+        SDL_RenderFillRect(self.renderer, SDL_Rect(0, 0, self.width, self.height))
+
     def convert_coords(self, x, y):
         return round(self.width / 2 + x * 300), round(self.height / 2 - y * 300)
